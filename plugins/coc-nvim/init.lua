@@ -5,8 +5,8 @@ return {
     'neoclide/coc.nvim',
     dependencies = {
         {
-            -- fzf complat for coc
-            'antoinemadec/coc-fzf',
+            -- fzf compat for coc
+            'NoSimpleApple/coc-fzf',
             dependencies = {
                 'junegunn/fzf.vim',
                 'junegunn/fzf'
