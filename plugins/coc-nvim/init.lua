@@ -7,6 +7,7 @@ return {
         {
             -- fzf compat for coc
             'NoSimpleApple/coc-fzf',
+            branch = "custom",
             dependencies = {
                 'junegunn/fzf.vim',
                 'junegunn/fzf'
