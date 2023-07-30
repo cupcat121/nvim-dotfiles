@@ -11,6 +11,12 @@
   "suggest.detailField": "preview",
   "suggest.snippetIndicator": "",
   "suggest.triggerCompletionWait": 50,
+  "suggest.floatConfig": {
+      "border": true,
+      "rounded": true,
+      "winblend": 10
+  },
+
   "suggest.completionItemKindLabels": {
     "class": "\uf0e8",
     "color": "\ue22b",
@@ -47,6 +53,21 @@
   "diagnostic.checkCurrentLine": true,
   "diagnostic.virtualTextPrefix": " ❯❯❯ ",
   "diagnostic.virtualText": false,
+  "diagnostic.floatConfig": {
+      "title": "Diag:",
+      "border": true,
+      "maxWidth": 50,
+      "winblend": 20
+  },
+  
+  "hover.floatConfig": {
+      "border": true,
+      "title": "hoshino",
+      "maxHeight": 40,
+      "rounded": true,
+      "shadow": false,
+      "winblend": 5
+  },
 
   "prettier.disableLanguages": [],
   "prettier.formatterPriority": 10,
@@ -83,7 +104,6 @@
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
-  "wxss.validate": false,
 
   "python.analysis.autoImportCompletions": true,
   "python.analysis.stubPath": "typings",
