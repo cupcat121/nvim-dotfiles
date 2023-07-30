@@ -1,8 +1,11 @@
 {
   "coc.preferences.extensionUpdateCheck": "daily",
-  "coc.preferences.messageLevel": "error", 
-  "coc.source.syntax.firstMatch": false,
+  "coc.preferences.messageLevel": "error",
   "suggest.labelMaxLength": 20,
+  "suggest.selection": "recentlyUsedByPrefix",
+  "suggest.insertMode": "replace",
+  "suggest.defaultSortMethod": "alphabetical",
+  "suggest.maxCompleteItemCount": 20,
   "suggest.noselect": true,
   "suggest.enablePreselect": false,
   "suggest.triggerAfterInsertEnter": false,
@@ -12,9 +15,9 @@
   "suggest.snippetIndicator": "",
   "suggest.triggerCompletionWait": 50,
   "suggest.floatConfig": {
-      "border": true,
-      "rounded": true,
-      "winblend": 10
+    "border": true,
+    "rounded": true,
+    "winblend": 10
   },
 
   "suggest.completionItemKindLabels": {
@@ -51,23 +54,26 @@
   "diagnostic.displayByAle": false,
   "diagnostic.refreshOnInsertMode": false,
   "diagnostic.checkCurrentLine": true,
-  "diagnostic.virtualTextPrefix": " ❯❯❯ ",
+  "diagnostic.virtualTextPrefix": " ⚠️ ",
+  "diagnostic.format": "%message (%source%code)",
   "diagnostic.virtualText": false,
   "diagnostic.floatConfig": {
-      "title": "Diag:",
-      "border": true,
-      "maxWidth": 50,
-      "winblend": 20
+    "title": " ⚠️ ",
+    "border": true,
+    "maxWidth": 50,
+    "winblend": 15
   },
-  
+
   "hover.floatConfig": {
-      "border": true,
-      "title": "hoshino",
-      "maxHeight": 40,
-      "rounded": true,
-      "shadow": false,
-      "winblend": 5
+    "border": true,
+    "maxHeight": 40,
+    "rounded": true,
+    "shadow": false,
+    "winblend": 5
   },
+
+  "signature.target": "float",
+  "signature.floatConfig": {},
 
   "prettier.disableLanguages": [],
   "prettier.formatterPriority": 10,
@@ -76,15 +82,37 @@
   "snippets.shortcut": "🐱",
   "snippets.userSnippetsDirectory": "$HOME/.config/nvim/snips",
   "snippets.ultisnips.enable": true,
-  "snippets.ultisnips.directories": [
-      "$HOME/.config/nvim/snips"
-  ],
+  "snippets.ultisnips.directories": ["$HOME/.config/nvim/snips"],
 
   "codeLens.enable": true,
+
+  "tabnine.limit": 3,
+  "tabnine.shortcut": "🤔",
+  "tabnine.disable_filetypes": [],
+
+  "coc.source.syntax.enable": false,
+  "coc.source.syntax.firstMatch": false,
+
+  "coc.source.word.enable": true,
+  "coc.source.word.shortcut": "W",
+
+  "coc.source.emoji.enable": true,
+  "coc.source.emoji.shortcut": "Emo",
+  "coc.source.emoji.triggerCharacters": ["?"],
+
+  "coc.source.file.shortcut": "📁",
+  "coc.source.file.ignoreHidden": false,
+  "coc.source.file.triggerCharacters": ["/", "\\"],
+
+  "coc.source.issues.enable": true,
+  "coc.source.issues.triggerCharacters": ["#"],
+
 
   "yaml.format.enable": true,
   "yaml.format.bracketSpacing": true,
   "yaml.completion": true,
+
+  "toml.formatter.indentTables": true,
 
   "typescript.format.enable": true,
   "typescript.suggestionActions.enabled": true,
@@ -93,6 +121,8 @@
   "json.format.keepLines": true,
 
   "sumneko-lua.enableNvimLuaDev": true,
+  "sumneko-lua.checkUpdate": false,
+  "sumneko-lua.locale": "zh-cn",
   "Lua.diagnostics.globals": ["vim"],
   "Lua.format.enable": true,
   "Lua.runtime.version": "LuaJIT",
@@ -112,32 +142,19 @@
   "python.formatting.provider": "black",
   "python.formatting.blackArgs": [],
   "python.venvPath": "$HOME/.local/pyvenvs",
+  "python.linting.enabled": false,
   "python.linting.mypyEnabled": false,
   "python.linting.ruffEnabled": true,
+  "pyright.disableDiagnostics": false,
+  "pyright.completion.snippetSupport": true,
   "python.linting.ruffArgs": [],
   "pyright.organizeimports.provider": "ruff",
   "pyright.testing.provider": "pytest",
   "pyright.testing.pytestArgs": [],
 
-  "signature.target": "float",
+  "perl.showLocalVars": true,
 
   "languageserver": {
-    "lua": {
-      "command": "lua-language-server",
-      "filetypes": ["lua"],
-      "settings": {
-        "Lua": {
-          "workspace.library": {
-            "/usr/share/nvim/runtime/lua": true,
-            "/usr/share/nvim/runtime/lua/vim": true,
-            "/usr/share/nvim/runtime/lua/vim/lsp": true
-          },
-          "diagnostics": {
-            "globals": ["vim"]
-          }
-        }
-      }
-    },
     "cmake": {
       "command": "cmake-language-server",
       "filetypes": ["cmake"],
@@ -175,6 +192,21 @@
       "args": ["--stdio"]
     }
   },
+
+  "workspace.ignoredFolders": ["$HOME", ".git"],
+  "workspace.workspaceFolderFallbackCwd": true,
+  "workspace.rootPatterns": [
+    ".git",
+    ".hg",
+    ".projections.json",
+    ".nvim.lua",
+    "pyproject.toml",
+    "setup.cfg"
+  ],
+
+  "cSpell.numSuggestions": 3,
+  "cSpell.allowCompoundWords": true,
+  "cSpell.enabled": true,
   "cSpell.userWords": [
     "GEOIP",
     "GEOSITE",
