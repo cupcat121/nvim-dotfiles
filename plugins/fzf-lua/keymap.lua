@@ -2,8 +2,8 @@ local keyset = vim.keymap.set
 
 keyset({ "n" }, "gt", "<cmd>FzfLua buffers<CR>", { desc = "choose buffer" })
 
-keyset({ "n", "i" }, "<C-o>", "<cmd>FzfLua files<CR>", { desc = "opened files" })
-keyset({ "n", "i" }, "<C-M-o>", "<cmd>FzfLua oldfiles<CR>", { desc = "opened files history" })
+keyset({ "n", "i" }, "<C-M-o>", "<cmd>FzfLua files<CR>", { desc = "opened files" })
+keyset({ "n", "i" }, "<C-`>", "<cmd>FzfLua oldfiles<CR>", { desc = "opened files history" })
 keyset({ "n" }, "<C-f>", "<cmd>FzfLua lgrep_curbuf<CR>", { desc = "search from current buffer" })
 keyset({ "n" }, "<C-M-f>", "<cmd>FzfLua grep_project<CR>", { desc = "search all project lines" })
 keyset({ "n" }, "#", "<cmd>FzfLua grep_cword<CR>", { desc = "search word under cursor" })
