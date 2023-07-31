@@ -1,0 +1,14 @@
+snippet print "wrap print func" b
+print(${1:`!p snip.rv = snip.v.text.strip("*") or "\"\""`})
+endsnippet
+
+snippet class "make class boilerplate" b
+class ${1}:
+    def __init__(self):
+	    ...
+endsnippet
+
+snippet enmu "python enmurate() boilerplate" b
+for ${1:_}, ${2:k} in enumerate(${3}):
+    ${4:...}
+endsnippet
