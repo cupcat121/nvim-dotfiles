@@ -6,7 +6,8 @@ local setopt = vim.opt
 setopt.compatible = false
 setopt.showmode = false
 setopt.exrc = true
-setopt.updatetime = 100 setopt.termguicolors = true
+setopt.updatetime = 100
+setopt.termguicolors = true
 setopt.ignorecase = true
 setopt.number = true
 setopt.relativenumber = true
@@ -21,7 +22,7 @@ setopt.expandtab = true
 setopt.cursorline = true
 setopt.magic = true
 setopt.foldenable = false
-setopt.clipboard = 'unnamedplus'
+setopt.clipboard:append('unnamedplus')
 setopt.errorbells = false
 setopt.softtabstop = 4
 setopt.history = 1000
@@ -33,8 +34,8 @@ setopt.langmenu = 'zh_CN.UTF-8'
 setopt.completeopt = { "menu", "noselect", "preview" }
 
 setopt.undofile = true
-setopt.undodir =  vim.fn.expand("$HOME/.nvim_cache/undofiles")
-setopt.viewdir = vim.fn.expand("HOME/.nvim_cache/views")
+setopt.undodir:append(vim.fn.expand("$HOME/.nvim_cache/undofiles"))
+setopt.viewdir:append(vim.fn.expand("HOME/.nvim_cache/views"))
 setopt.viewoptions = { "options", "cursor", "folds", "curdir" }
 
 setopt.swapfile = false
