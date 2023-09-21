@@ -2,6 +2,7 @@ return {
 	-- tabs monitor
 	'romgrk/barbar.nvim',
 	enabled = true,
+    cond = not vim.g.vscode,
 	dependencies = {
 		'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
 		'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons

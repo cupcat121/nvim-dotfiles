@@ -1,3 +1,4 @@
 return {
-    'voldikss/vim-floaterm'
+    'voldikss/vim-floaterm',
+    cond = not vim.g.vscode,
 }

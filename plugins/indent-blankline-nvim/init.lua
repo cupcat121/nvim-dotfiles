@@ -10,6 +10,9 @@ return {
     -- indent guides for every line
     'lukas-reineke/indent-blankline.nvim',
     enabled = true,
+    dependencies = {
+        'nvim-treesitter/nvim-treesitter',
+    },
     opts = {
         space_char_blankline = " ",
         show_current_context = true,

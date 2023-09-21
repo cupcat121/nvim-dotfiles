@@ -20,6 +20,7 @@ local options = {
 }
 return {
     'rmagatti/goto-preview',
+    cond = not vim.g.vscode,
     config = function()
         require('goto-preview').setup(options)
     end

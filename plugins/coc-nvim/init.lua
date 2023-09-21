@@ -15,9 +15,13 @@ return {
             config = function()
                 vim.g.coc_fzf_preview_togggle_key = "<F4>"
             end,
+        },
+        {
+            'tjdevries/coc-zsh',
         }
     },
     enabled = true,
+    cond = not vim.g.vscode,
     branch = 'release',
     init = function()
         require("plugins.coc-nvim.keymap")

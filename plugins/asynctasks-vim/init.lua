@@ -1,5 +1,6 @@
 return {
     "skywind3000/asynctasks.vim",
+    cond = not vim.g.vscode,
     dependencies = {
         {
             "skywind3000/asyncrun.vim",

@@ -55,6 +55,7 @@ require("lazy").setup(
             "utilyre/barbecue.nvim",
             enabled = true,
             name = "barbecue",
+            cond = not vim.g.vscode,
             version = "*",
             dependencies = {
                 "SmiteshP/nvim-navic",
@@ -74,6 +75,7 @@ require("lazy").setup(
         {
             'marko-cerovac/material.nvim',
             enabled = true,
+            cond = not vim.g.vscode,
             lazy = true,
             --[[ init = function()
 			vim.cmd 'colorscheme material-deep-ocean'
@@ -82,11 +84,13 @@ require("lazy").setup(
         {
             'rafamadriz/neon',
             enabled = true,
+            cond = not vim.g.vscode,
             lazy = true,
         },
         {
             "folke/tokyonight.nvim",
             enabled = true,
+            cond = not vim.g.vscode,
             lazy = false,
             priority = 1000,
             opts = {

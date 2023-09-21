@@ -31,6 +31,7 @@ local options = {
 
 return {
     "gen740/SmoothCursor.nvim",
+    cond = not vim.g.vscode,
     config = function()
         require("smoothcursor").setup(options)
     end,

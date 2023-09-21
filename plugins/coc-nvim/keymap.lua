@@ -1,4 +1,3 @@
-
 -- Use Tab for trigger completion with characters ahead and navigate
 -- NOTE: There's always a completion item selected by default, you may want to enable
 -- no select by setting `"suggest.noselect": true` in your configuration file
@@ -7,15 +6,17 @@
 local keyset = vim.keymap.set
 local opts1 = { silent = true, noremap = true, expr = true, replace_keycodes = false }
 
-
 keyset("i", "<c-j>",
-    'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts1)
-keyset("i", "<c-k>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts1)
-
-keyset("i", "<TAB>", [[coc#pum#visible() ? coc#pum#confirm() : "<TAB>"]], opts1)
+    'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<C-j>" : coc#refresh()', opts1)
+keyset("i", "<c-k>", [[coc#pum#visible() ? coc#pum#prev(1) : "<C-k>"]], opts1)
+-- keyset({ "i", "x" }, "<TAB>",
+--     "coc#pum#visible() ? coc#_select_confirm() : " ..
+--     "coc#expandableOrJumpable() ? '<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])<CR>' : " ..
+--     "v:lua.check_back_space() ? '<TAB>' : " ..
+--     "coc#refresh()", opts1)
+keyset({ "i", "x" }, "<TAB>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts1)
 -- keyset("i", "<c-space>", "coc#refresh()", { silent = true, expr = true })
 -- keyset("i", "<c-space>", "coc#pum#visible()", opts1)
-
 
 -- snippets settings
 
@@ -23,8 +24,8 @@ keyset("i", "<TAB>", [[coc#pum#visible() ? coc#pum#confirm() : "<TAB>"]], opts1)
 vim.g.coc_snippet_next = '<M-f>'
 vim.g.coc_snippet_prev = '<M-b>'
 
-keyset("i", "<c-space>", "<Plug>(coc-snippets-expand-jump)", {desc = "Expand snippet or jump to next placeholder of current snippet when possible" })
-keyset("v", "<C-S-y>", "<Plug>(coc-convert-snippet)", { desc = " Create new snippet with current selected text"})
+-- keyset({"i", "x"}, "<TAB>", "<Plug>(coc-snippets-expand-jump)", {desc = "Expand snippet or jump to next placeholder of current snippet when possible" })
+keyset("v", "<C-S-y>", "<Plug>(coc-convert-snippet)", { desc = " Create new snippet with current selected text" })
 -- keyset("i", "<C-spcae>", "<Plug>(coc-snippets-expand", { desc = "Expand snippet with current inserted text" })
 
 -- to navigate diagnostics
@@ -51,7 +52,7 @@ function _G.show_docs()
     end
 end
 
-keyset({"n"}, "<c-q>", '<CMD>lua _G.show_docs()<CR>', { silent = true })
+keyset({ "n" }, "<c-q>", '<CMD>lua _G.show_docs()<CR>', { silent = true })
 
 -- Symbol renaming
 keyset("n", "<M-f6>", "<Plug>(coc-rename)", { silent = true })
@@ -80,7 +81,7 @@ keyset("n", "<c-cr>", "<Plug>(coc-fix-current)", opts2)
 
 -- Remap keys for apply refactor code actions.
 keyset("n", "<c-x>", "<Plug>(coc-codeaction-refactor)", { silent = true })
-keyset({"x"}, "<c-x>", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
+keyset({ "x" }, "<c-x>", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
 
 -- Run the Code Lens actions on the current line
 -- keyset("n", "<leader>cl", "<Plug>(coc-codelens-action)", opts2)
@@ -109,7 +110,6 @@ keyset("i", "<C-b>",
     'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(0)<cr>" : "<Left>"', opts3)
 keyset("v", "<C-f>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"', opts3)
 keyset("v", "<C-b>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', opts3)
-
 
 -- Use CTRL-S for selections ranges
 -- Requires 'textDocument/selectionRange' support of language server

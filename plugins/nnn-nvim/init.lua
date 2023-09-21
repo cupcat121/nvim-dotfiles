@@ -2,6 +2,7 @@ return {
 	-- file explorer
 	'luukvbaal/nnn.nvim',
 	enabled = true,
+    cond = not vim.g.vscode,
 	init = function()
 	end,
 	config = function()
