@@ -14,7 +14,9 @@ end
 require("plugins")
 
 --options setup--
-require("options")
+if not vim.g.vscode then
+    require("options")
+end
 
 --keymap setup--
 require("keymap")
