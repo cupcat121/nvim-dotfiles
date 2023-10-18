@@ -69,6 +69,7 @@ require("lazy").setup(
             -- code parsing system and better highlighting
             'nvim-treesitter/nvim-treesitter',
             enabled = true,
+            build = ":TSUpdate"
         },
 
         -- colorscheme
