@@ -36,6 +36,7 @@ require("lazy").setup(
         require("plugins.goto-preview"),
         require("plugins.nvim-cmp"),
         require("plugins.nvim-lspconfig"),
+        require("plugins.lushwal-nvim"),
         {
             -- yuck filetype support
             "elkowar/yuck.vim"
@@ -83,6 +84,12 @@ require("lazy").setup(
             end
         },
 
+
+        {
+            -- treesitter hyprland conf plugin
+            "luckasRanarison/tree-sitter-hypr"
+        },
+
         -- colorscheme
         {
             'marko-cerovac/material.nvim',
@@ -103,19 +110,41 @@ require("lazy").setup(
             "folke/tokyonight.nvim",
             enabled = true,
             cond = not vim.g.vscode,
-            lazy = false,
+            lazy = true,
             priority = 1000,
             opts = {
                 style = "storm",
                 transparent = true,
             },
+        },
+        {
+            "lunarvim/horizon.nvim",
+            enabled = true,
+            cond = not vim.g.vscode,
+            lazy = false,
             init = function()
-                vim.cmd [[colorscheme tokyonight]]
+                vim.cmd [[colorscheme horizon]]
             end
         },
-
-    },
-    {
+        {
+            "xiyaowong/transparent.nvim",
+            enable = false,
+            cond = not vim.g.vscode,
+            config = function()
+                require("transparent").setup({ -- Optional, you don't have to run setup.
+                    groups = {                -- table: default groups
+                        'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
+                        'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
+                        'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
+                        'SignColumn', 'StatusLine', 'StatusLineNC',
+                        'EndOfBuffer',
+                    },
+                    extra_groups = {}, -- table: additional groups that should be cleared
+                    exclude_groups = {}, -- table: groups you don't want to clear
+                })
+                require('transparent').clear_prefix('BufferLine')
+            end
+        },
         install = {
             -- install missing plugins on startup. This doesn't increase startup time.
             missing = true,
